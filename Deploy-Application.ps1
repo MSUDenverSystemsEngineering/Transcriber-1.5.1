@@ -137,8 +137,8 @@ Try {
 		}
 
 		## <Perform Installation tasks here>
-			$exitCode = Execute-Process -Path "$dirFiles\Transcriber.exe" -Parameters '/VERYSILENT /CLOSEAPPLICATIONS' -WindowStyle 'Hidden' -PassThru
-			If (($exitCode.ExitCode -ne "0") -and ($mainExitCode -ne "3010")) { $mainExitCode = $exitCode.ExitCode }
+		$exitCode = Execute-Process -Path "$dirFiles\Transcriber.exe" -Parameters '/VERYSILENT /CLOSEAPPLICATIONS' -WindowStyle 'Hidden' -PassThru
+		If (($exitCode.ExitCode -ne "0") -and ($mainExitCode -ne "3010")) { $mainExitCode = $exitCode.ExitCode }
 
 		##*===============================================
 		##* POST-INSTALLATION
@@ -180,10 +180,10 @@ Try {
 		}
 
 		# <Perform Uninstallation tasks here>
-			Stop-Process -name tclkit.exe
+		Stop-Process -name tclkit.exe
 
-			$exitCode = Execute-Process -Path "$envProgramFilesX86\Transcriber\unins000.exe" -Parameters '/SILENT /CLOSEAPPLICATIONS' -WindowStyle 'Hidden' -PassThru
-			If (($exitCode.ExitCode -ne "0") -and ($mainExitCode -ne "3010")) { $mainExitCode = $exitCode.ExitCode }
+		$exitCode = Execute-Process -Path "$envProgramFilesX86\Transcriber\unins000.exe" -Parameters '/SILENT /CLOSEAPPLICATIONS' -WindowStyle 'Hidden' -PassThru
+		If (($exitCode.ExitCode -ne "0") -and ($mainExitCode -ne "3010")) { $mainExitCode = $exitCode.ExitCode }
 
 
 		##*===============================================
